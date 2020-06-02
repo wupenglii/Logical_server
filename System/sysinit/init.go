@@ -2,5 +2,5 @@ package sysinit
 
 func init() {
 	sysinit()
-	dbinit()
+	dbinit() //初始化主库
 }

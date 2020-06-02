@@ -12,11 +12,13 @@ import (
 )
 
 func dbinit(aliases ...string) {
+	//如果是开发者模式，则显示命令信息
 	isDev := (beego.AppConfig.String("runmode") == "dev")
 
 	if len(aliases) > 0 {
 		for _, alias := range aliases {
 			registerDatabase(alias)
+			//主库 自动建表
 			if "w" == alias {
 				orm.RunSyncdb("default", false, isDev)
 			}
