@@ -45,9 +45,7 @@
                     {{range .Books}}
                     <li class="clearfix">
                         <div class="col-sm-3 col-md-3 col-lg-2 col-xs-3 " style="padding: 0px;">
-                            <a href="{{urlfor "DocumentController.Index" ":key" .Identify}}" target="_blank" title="{{.BookName}}">
-                                <img onerror="this.src='/static/images/book.png'" src="{{showImg .Cover "cover"}}" alt="{{.BookName}}" class="img-responsive border-cover-img">
-                            </a>
+                           
                         </div>
                         <div class="col-sm-9 col-md-9 col-lg-10 col-xs-9">
                             <a href="{{urlfor "DocumentController.Index" ":key" .Identify}}" target="_blank"><h4>{{.BookName}}</h4></a>
@@ -57,7 +55,6 @@
                                 <span title="" class="tooltips" data-original-title="收藏人次"><i class="fa fa-heart-o"></i> {{.Collection}}</span>
                                 <span title="" class="tooltips" data-original-title="创建时间"><i class="fa fa-clock-o"></i> {{dateformat .CreateTime "2006-01-02"}}</span>
                             </div>
-                            <div class="help-block book-description">{{isubstr .Description 180}}</div>
                         </div>
                     </li>
                     {{else}}
@@ -81,7 +78,6 @@
                                     <span class="tooltips" title="发布时间"><i class="fa fa-clock-o"></i> {{dateformat .CreateTime "2006-01-02"}}</span>
                                     <span><a href="{{urlfor "DocumentController.Index" ":key" .BookIdentify}}" target="_blank" class="tooltips" title="查看书籍"><i class="fa fa-book text-muted"></i>《{{.BookName}}》</a></span>
                                 </div>
-                                <div class="help-block book-description">{{isubstr .Release 180}}</div>
                             </div>
                         </li>
                         {{else}}

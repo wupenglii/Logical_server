@@ -6,7 +6,7 @@ import (
 
 func init() {
 	orm.RegisterModel(
-		new(Member)
+		new(Member),
 	)
 }
 

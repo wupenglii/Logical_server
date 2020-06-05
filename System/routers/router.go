@@ -7,18 +7,17 @@ import (
 )
 
 func init() {
-	beego.Router("/", &controllers.MainController{})
+	//首页&分类&详情
+
+	beego.Router("/", &controllers.HomeController{}, "get:Index2")
+	beego.Router("/2", &controllers.HomeController{}, "get:Index2")
 
 	//首页&分类&详情
 	// beego.Router("/", &controllers.HomeController{}, "get:Index")               //首页
 	// beego.Router("/explore", &controllers.ExploreController{}, "get:Index")     //分类
 	// beego.Router("/books/:key", &controllers.DocumentController{}, "get:Index") //详情
 
-	// //读书
-	// beego.Router("/read/:key/:id", &controllers.DocumentController{}, "*:Read")         //图书目录&详情
-	// beego.Router("/read/:key/search", &controllers.DocumentController{}, "post:Search") //图书章节内搜索
-
-	// //图书编辑
+	// //货物编辑
 	// beego.Router("/api/:key/content/?:id", &controllers.DocumentController{}, "*:Content") //保存文档内容
 	// beego.Router("/api/:key/edit/?:id", &controllers.DocumentController{}, "*:Edit")       //文档编辑
 	// beego.Router("/api/upload", &controllers.DocumentController{}, "post:Upload")          //上传图片
@@ -29,21 +28,19 @@ func init() {
 	// beego.Router("/search", &controllers.SearchController{}, "get:Search")
 	// beego.Router("/search/result", &controllers.SearchController{}, "get:Result")
 
-	// //login
-	// beego.Router("/login", &controllers.AccountController{}, "*:Login")
-	// beego.Router("/regist", &controllers.AccountController{}, "*:Regist")
-	// beego.Router("/logout", &controllers.AccountController{}, "*:Logout")
-	// beego.Router("/doregist", &controllers.AccountController{}, "post:DoRegist")
+	//login
+	beego.Router("/login", &controllers.AccountController{}, "*:Login")
+	beego.Router("/regist", &controllers.AccountController{}, "*:Regist")
+	beego.Router("/logout", &controllers.AccountController{}, "*:Logout")
+	beego.Router("/doregist", &controllers.AccountController{}, "post:DoRegist")
 
-	// //用户图书管理
-	// beego.Router("/book", &controllers.BookController{}, "*:Index")                         //我的图书
-	// beego.Router("/book/create", &controllers.BookController{}, "post:Create")              //创建图书
-	// beego.Router("/book/:key/setting", &controllers.BookController{}, "*:Setting")          //图书设置
-	// beego.Router("/book/setting/upload", &controllers.BookController{}, "post:UploadCover") //图书封面
-	// beego.Router("/book/star/:id", &controllers.BookController{}, "*:Collection")           //收藏图书
+	// //仓库货物管理
+	// beego.Router("/book", &controllers.BookController{}, "*:Index")                         //我的货物
+	// beego.Router("/book/create", &controllers.BookController{}, "post:Create")              //创建货物
+	// beego.Router("/book/:key/setting", &controllers.BookController{}, "*:Setting")          //货物设置
+	// beego.Router("/book/setting/upload", &controllers.BookController{}, "post:UploadCover") //货物封面
 	// beego.Router("/book/setting/save", &controllers.BookController{}, "post:SaveBook")      //保存
-	// beego.Router("/book/:key/release", &controllers.BookController{}, "post:Release")       //发布图书
-	// beego.Router("/book/setting/token", &controllers.BookController{}, "post:CreateToken")  //图书封面
+	// beego.Router("/book/:key/release", &controllers.BookController{}, "post:Release")       //发布货物
 
 	// //个人中心
 	// beego.Router("/user/:username", &controllers.UserController{}, "get:Index")                 //分享

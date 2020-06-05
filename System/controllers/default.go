@@ -1,13 +1,14 @@
 package controllers
 
+import (
+	"github.com/astaxie/beego"
+)
+
 //MainController use BaseController
 type MainController struct {
-	BaseController
+	beego.Controller
 }
 
-//Get use index.tpl
-func (c *MainController) Get() {
-	c.Data["Website"] = "beego.me"
-	c.Data["Email"] = "astaxie@gmail.com"
+func (c *MainController) InitData() {
 	c.TplName = "index.tpl"
 }
